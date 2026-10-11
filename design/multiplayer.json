@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "required": true,
+  "mode": "online-coop",
+  "authorityCandidate": "Minecraft multiplayer session",
+  "players": {"capacity": null, "capacityPolicy": "Do not advertise capacity until implementation and test establish it."},
+  "connection": {
+    "setup": "Generate recipe.multiplayer with Melty setup_multiplayer; do not hand-invent fields.",
+    "hostAddressLog": null,
+    "joinArgumentOrFile": null,
+    "relayOrNATTraversal": null,
+    "status": "blocked-tool-unavailable"
+  },
+  "requiredAcceptanceTests": [
+    "Host launches from Melty Play with both game components.",
+    "Melty provides a host join address and the game records it in the expected log.",
+    "Second installed game copy joins without typing an address or forwarding router ports.",
+    "Both clients observe the same encounter and player roster.",
+    "Mob damage, police encounter events, and explosion events are not duplicated or lost.",
+    "Submit host and join logs to Melty multiplayer testing tools."
+  ],
+  "status": "blocked-unverified"
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "systems": [
+    {
+      "id": "shared-coop-session",
+      "name": "Shared co-op session",
+      "release": 1,
+      "authority": "Minecraft multiplayer is a candidate shared roster/event authority; validate against Melty setup_multiplayer.",
+      "inputs": ["player.join", "player.leave", "player.position"],
+      "outputs": ["session.roster"],
+      "implementation": "minecraft/session/CoopSession.java",
+      "status": "blocked-unverified",
+      "unfilled": ["Melty multiplayer recipe", "NAT-safe join transport", "host/join behavior", "tested player limit"]
+    },
+    {
+      "id": "mob-police-combat",
+      "name": "Minecraft hostile mobs versus GTA police",
+      "release": 1,
+      "authority": "Combat and entity authority must be decided and verified in a two-client test; GTA police actors may be per-client replicas only if synchronized outcomes are consistent.",
+      "inputs": ["mob.spawned", "mob.damage", "gta.police.spawn_request", "gta.police.unit_damaged"],
+      "outputs": ["gta.police.spawn_request", "gta.police.unit_damaged", "mob.damage", "combat.outcome"],
+      "implementation": "bridge/CombatBridge",
+      "status": "blocked-unverified",
+      "unfilled": ["Enhanced actor spawn and health hooks", "coordinate mapping", "damage reconciliation", "disconnect/reconnect behavior"]
+    },
+    {
+      "id": "cross-game-explosions",
+      "name": "Cross-game explosion event bridge",
+      "release": 1,
+      "authority": "Emit each source event once with an event id and reject duplicates; calibrate damage/radius in game.",
+      "inputs": ["minecraft.explosion", "gta.explosion.observed"],
+      "outputs": ["gta.explosion.request", "minecraft.explosion.request"],
+      "implementation": "bridge/ExplosionBridge",
+      "status": "blocked-unverified",
+      "unfilled": ["Safe Enhanced native trigger", "radius/damage mapping", "duplicate suppression", "ordering and retries"]
+    },
+    {
+      "id": "block-world-bridge",
+      "name": "Block construction and destruction in Los Santos",
+      "release": 2,
+      "inputs": ["minecraft.block.place", "minecraft.block.break"],
+      "outputs": ["gta.world.obstacle.create", "gta.world.obstacle.remove"],
+      "implementation": "bridge/BlockWorldBridge",
+      "status": "deferred-by-user"
+    },
+    {
+      "id": "nether-invasion",
+      "name": "Nether events and invasion",
+      "release": 2,
+      "inputs": ["minecraft.portal.entered", "mob.spawned"],
+      "outputs": ["gta.world.nether_event", "gta.world.fire_damage"],
+      "implementation": "bridge/NetherBridge",
+      "status": "deferred-by-user"
+    }
+  ]
+}

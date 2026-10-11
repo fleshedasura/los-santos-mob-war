@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "events": [
+    {"id":"player.join","system":"shared-coop-session","producer":"minecraft-java","consumers":["shared-coop-session","mob-police-combat"],"fields":{"sessionId":"string","playerId":"string","protocolVersion":"integer"},"status":"specified-unverified"},
+    {"id":"player.leave","system":"shared-coop-session","producer":"minecraft-java","consumers":["shared-coop-session","mob-police-combat"],"fields":{"sessionId":"string","playerId":"string","reason":"string"},"status":"specified-unverified"},
+    {"id":"player.position","system":"shared-coop-session","producer":"minecraft-java","consumers":["shared-coop-session","mob-police-combat"],"fields":{"sessionId":"string","playerId":"string","x":"number","y":"number","z":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"session.roster","system":"shared-coop-session","producer":"minecraft-java","consumers":["shared-coop-session"],"fields":{"sessionId":"string","players":"array"},"status":"specified-unverified"},
+    {"id":"mob.spawned","system":"mob-police-combat","producer":"minecraft-java","consumers":["mob-police-combat"],"fields":{"sessionId":"string","entityId":"string","mobType":"string","x":"number","y":"number","z":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"mob.damage","system":"mob-police-combat","producer":"minecraft-java","consumers":["mob-police-combat"],"fields":{"sessionId":"string","entityId":"string","sourceId":"string","amount":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"gta.police.spawn_request","system":"mob-police-combat","producer":"bridge/CombatBridge","consumers":["gta-v-enhanced"],"fields":{"sessionId":"string","encounterId":"string","x":"number","y":"number","z":"number","count":"integer"},"status":"specified-unverified"},
+    {"id":"gta.police.unit_damaged","system":"mob-police-combat","producer":"gta-v-enhanced","consumers":["mob-police-combat"],"fields":{"sessionId":"string","encounterId":"string","unitId":"string","sourceId":"string","amount":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"combat.outcome","system":"mob-police-combat","producer":"bridge/CombatBridge","consumers":["shared-coop-session"],"fields":{"sessionId":"string","encounterId":"string","winner":"string","tick":"integer"},"status":"specified-unverified"},
+    {"id":"minecraft.explosion","system":"cross-game-explosions","producer":"minecraft-java","consumers":["cross-game-explosions"],"fields":{"sessionId":"string","eventId":"string","x":"number","y":"number","z":"number","power":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"gta.explosion.observed","system":"cross-game-explosions","producer":"gta-v-enhanced","consumers":["cross-game-explosions"],"fields":{"sessionId":"string","eventId":"string","x":"number","y":"number","z":"number","power":"number","tick":"integer"},"status":"specified-unverified"},
+    {"id":"gta.explosion.request","system":"cross-game-explosions","producer":"bridge/ExplosionBridge","consumers":["gta-v-enhanced"],"fields":{"sessionId":"string","eventId":"string","x":"number","y":"number","z":"number","power":"number"},"status":"specified-unverified"},
+    {"id":"minecraft.explosion.request","system":"cross-game-explosions","producer":"bridge/ExplosionBridge","consumers":["minecraft-java"],"fields":{"sessionId":"string","eventId":"string","x":"number","y":"number","z":"number","power":"number"},"status":"specified-unverified"},
+    {"id":"minecraft.block.place","system":"block-world-bridge","producer":"minecraft-java","consumers":["block-world-bridge"],"fields":{"sessionId":"string","blockPos":"object","blockType":"string"},"status":"deferred"},
+    {"id":"minecraft.block.break","system":"block-world-bridge","producer":"minecraft-java","consumers":["block-world-bridge"],"fields":{"sessionId":"string","blockPos":"object","blockType":"string"},"status":"deferred"},
+    {"id":"minecraft.portal.entered","system":"nether-invasion","producer":"minecraft-java","consumers":["nether-invasion"],"fields":{"sessionId":"string","playerId":"string","portalPos":"object"},"status":"deferred"},
+    {"id":"gta.world.obstacle.create","system":"block-world-bridge","producer":"bridge/BlockWorldBridge","consumers":["block-world-bridge"],"fields":{"sessionId":"string","blockPos":"object","blockType":"string"},"status":"deferred"},
+    {"id":"gta.world.obstacle.remove","system":"block-world-bridge","producer":"bridge/BlockWorldBridge","consumers":["block-world-bridge"],"fields":{"sessionId":"string","blockPos":"object","blockType":"string"},"status":"deferred"},
+    {"id":"gta.world.nether_event","system":"nether-invasion","producer":"bridge/NetherBridge","consumers":["nether-invasion"],"fields":{"sessionId":"string","eventType":"string","center":"object"},"status":"deferred"},
+    {"id":"gta.world.fire_damage","system":"nether-invasion","producer":"bridge/NetherBridge","consumers":["nether-invasion"],"fields":{"sessionId":"string","entityId":"string","amount":"number"},"status":"deferred"}
+  ]
+}

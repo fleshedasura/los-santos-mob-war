@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "hooks": [
+    {
+      "id": "gta-enhanced-asi-entry",
+      "game": "gta-v-enhanced",
+      "loader": "ultimate-asi-loader",
+      "entrypoint": "Custom native ASI DLL loaded by Melty-provided Ultimate ASI Loader",
+      "systems": ["mob-police-combat", "cross-game-explosions"],
+      "status": "blocked-unverified",
+      "requiredProof": ["compile against Enhanced runtime", "load with BattlEye enabled", "no Script Hook V dependency", "spawn/query police actor", "send/receive test event"]
+    },
+    {
+      "id": "minecraft-fabric-client",
+      "game": "minecraft-java",
+      "loader": "fabric",
+      "entrypoint": "Fabric client initialization and entity/combat callbacks",
+      "systems": ["shared-coop-session", "mob-police-combat", "cross-game-explosions"],
+      "status": "blocked-unverified",
+      "requiredProof": ["catalog-supported version", "successful build", "shared multiplayer connection", "emit mob event", "receive GTA-side bridge event"]
+    },
+    {
+      "id": "melty-multiplayer-wiring",
+      "game": "minecraft-java",
+      "loader": "melty-native-multiplayer",
+      "entrypoint": "Melty setup_multiplayer recipe; mod reads the provided join address and logs host/join status",
+      "systems": ["shared-coop-session"],
+      "status": "blocked-tool-unavailable",
+      "requiredProof": ["recipe returned by Melty", "host log", "join log", "second client connected", "external reachability verified"]
+    }
+  ]
+}

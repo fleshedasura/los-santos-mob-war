@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "status": "blocked",
+  "structuralChecks": {
+    "jsonSyntax": "checked by tools/validate_sheets.py",
+    "crossSheetReferences": "checked by tools/validate_sheets.py",
+    "implementationCells": "blocked"
+  },
+  "blockers": [
+    {"id":"B01","area":"Melty API","detail":"No verified Melty MCP results are recorded here; list_my_mods, game_info, search_mashups, setup_multiplayer, package validation, one-click check, upload, screenshots, release test, and consult_melty remain to be run."},
+    {"id":"B02","area":"local installation","detail":"A Windows environment with GTA V Enhanced and Minecraft installed is needed to confirm versions, paths, and live execution."},
+    {"id":"B03","area":"toolkit","detail":"universal-modder and its bin/um command must be installed and used against the actual game folders."},
+    {"id":"B04","area":"GTA Enhanced implementation","detail":"No Enhanced-compatible native plugin has been built or proven. Do not substitute Script Hook V, disable BattlEye, or reuse a Legacy-only install recipe."},
+    {"id":"B05","area":"multiplayer","detail":"Melty-generated multiplayer recipe, host/join logs, reachability proof, and two-client combat test are missing."},
+    {"id":"B06","area":"release metadata","detail":"Credits, license, and remix permission remain unset."},
+    {"id":"B07","area":"build/media/test","detail":"No mod source/JAR/ASI, release archive, genuine gameplay screenshot, or installed Melty test result exists."}
+  ],
+  "mustNotDo": [
+    "Do not publish this design scaffold as a mod.",
+    "Do not claim one-click setup or multiplayer works before Melty validation and a two-client test.",
+    "Do not disable or bypass BattlEye or use a Legacy-only Script Hook V installation recipe.",
+    "Do not bundle game-owned files or assets.",
+    "Do not invent a license, remix permission, max player count, or gameplay screenshot."
+  ]
+}

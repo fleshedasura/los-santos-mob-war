@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "entities": [
+    {
+      "id": "minecraft.creeper",
+      "game": "minecraft-java",
+      "kind": "hostile-mob",
+      "sourceContent": "minecraft-java",
+      "events": ["mob.spawned", "mob.damage", "minecraft.explosion"],
+      "release": 1,
+      "implementationStatus": "unverified"
+    },
+    {
+      "id": "minecraft.zombie",
+      "game": "minecraft-java",
+      "kind": "hostile-mob",
+      "sourceContent": "minecraft-java",
+      "events": ["mob.spawned", "mob.damage"],
+      "release": 1,
+      "implementationStatus": "unverified"
+    },
+    {
+      "id": "minecraft.skeleton",
+      "game": "minecraft-java",
+      "kind": "hostile-mob",
+      "sourceContent": "minecraft-java",
+      "events": ["mob.spawned", "mob.damage"],
+      "release": 1,
+      "implementationStatus": "unverified"
+    },
+    {
+      "id": "gta.police_unit",
+      "game": "gta-v-enhanced",
+      "kind": "police-npc",
+      "sourceContent": "gta-v-enhanced",
+      "events": ["gta.police.spawn_request", "gta.police.unit_damaged", "combat.outcome"],
+      "release": 1,
+      "implementationStatus": "blocked-unverified",
+      "unfilled": ["native actor creation", "AI targeting", "health/damage observation"]
+    },
+    {
+      "id": "gta.player_proxy",
+      "game": "gta-v-enhanced",
+      "kind": "player-proxy",
+      "sourceContent": "gta-v-enhanced",
+      "events": ["player.join", "player.leave", "player.position"],
+      "release": 1,
+      "implementationStatus": "blocked-unverified",
+      "unfilled": ["cross-client position source", "camera ownership", "safe actor representation"]
+    }
+  ]
+}

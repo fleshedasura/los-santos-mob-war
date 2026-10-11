@@ -1,0 +1,23 @@
+# Build output and local environment
+/build/
+/dist/
+/out/
+/.gradle/
+/.idea/
+.vscode/
+*.log
+*.tmp
+.env
+.env.*
+!.env.example
+
+# Native game binaries, private game files, and runtime installs
+*.asi
+*.dll
+*.exe
+*.jar
+*.pdb
+*.dmp
+/gtav/
+/minecraft-instance/
+/prism/

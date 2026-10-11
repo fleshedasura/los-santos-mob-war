@@ -1,0 +1,13 @@
+{
+  "projectTitle": "Los Santos: Mob War",
+  "titleStatus": "working-title",
+  "authorCredits": null,
+  "sourceLicense": null,
+  "remixAllowed": null,
+  "thirdPartyDependencies": [
+    {"name":"Ultimate ASI Loader","source":"Melty-provided loader","licenseReview":"verify current package metadata"},
+    {"name":"Fabric Loader","source":"Melty-managed Minecraft instance","licenseReview":"verify current package metadata"},
+    {"name":"Prism Launcher","source":"Melty-managed Minecraft instance","licenseReview":"verify current package metadata"}
+  ],
+  "blocker": "Credits, source license, and remix permission were not established by existing project metadata. Do not guess these values or submit a listing until resolved."
+}

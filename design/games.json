@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "games": [
+    {
+      "id": "gta-v-enhanced",
+      "slug": "gta-v-enhanced",
+      "role": "primary",
+      "purpose": "Host: player remains in GTA V Enhanced; use the player's real GTA world, police, vehicles and combat.",
+      "version": "Discover on Windows host; confirm with Melty game_info",
+      "loader": "ultimate-asi-loader",
+      "contentPolicy": "Read from the player's installed game at runtime. Never ship GTA files or extracted assets.",
+      "implementationStatus": "blocked-unverified",
+      "unresolved": ["Enhanced-compatible hook route", "BattlEye-enabled runtime verification", "camera/input/session access", "local install path and version"]
+    },
+    {
+      "id": "minecraft-java",
+      "slug": "minecraft-java",
+      "role": "companion",
+      "purpose": "Companion gameplay: real Minecraft hostile mobs and shared co-op state. Building and Nether mechanics are deferred from release 1.",
+      "version": "Confirm supported version through Melty catalog",
+      "loader": "fabric",
+      "contentPolicy": "Use Melty-managed Minecraft instance and player-owned game content. Never ship Minecraft assets.",
+      "implementationStatus": "blocked-unverified",
+      "unresolved": ["buildable Fabric mod", "catalog-supported version", "two-client session", "cross-game event bridge"]
+    }
+  ],
+  "presentation": {
+    "primaryWindow": "GTA V Enhanced",
+    "mode": "GTA-host passthrough/composition planned, not yet verified",
+    "status": "unverified"
+  }
+}
